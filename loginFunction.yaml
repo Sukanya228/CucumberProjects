@@ -1,0 +1,32 @@
+trigger:
+  branches:
+    include:
+      - main
+
+jobs:
+  - job: BuildAndTest
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      # Checkout the code from the repository
+      - checkout: self
+
+      # Set up Java Development Kit (JDK) version 11 (or specify the version you need)
+      - task: UseJavaVersion@1
+        inputs:
+          versionSpec: '11'
+          jdkArchitecture: 'x64'
+
+      # Set up Maven
+      - task: Maven@3
+        inputs:
+          mavenPomFile: 'pom.xml'
+          goals: 'clean test'
+          options: '-Dcucumber.options="--tags @Regression"'
+          mavenOptions: '-Xms512m -Xmx2048m'
+
+      # Optionally, upload test results (if you have test reporting configured)
+      - task: PublishTestResults@2
+        inputs:
+          testResultsFiles: '**/TEST-*.xml'
+          testRunTitle: 'Cucumber Test Results'
