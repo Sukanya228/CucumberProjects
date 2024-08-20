@@ -18,7 +18,7 @@ jobs:
           jdkArchitecture: 'x64'
 
       # Set up Maven
-      - task: Maven@3
+      - task: Maven@4
         inputs:
           mavenPomFile: 'pom.xml'
           goals: 'clean test'
