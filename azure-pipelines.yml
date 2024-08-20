@@ -17,7 +17,7 @@ jobs:
 - job: Build
   steps:
   - checkout: self
-  - task: Maven@3
+  - task: Maven@4
     inputs:
       mavenPomFile: 'pom.xml'
       mavenOptions: '-Xmx3072m'
