@@ -10,20 +10,18 @@ pool:
   vmImage: ubuntu-latest
 
 jobs:
-- job: no_checkout
-  steps:
-  - checkout: none
-
 - job: Build
   steps:
   - checkout: self
   - task: Maven@4
     inputs:
       mavenPomFile: 'pom.xml'
-      goals: 'clean install'
+      goals: 'mvn clean install'
       mavenOptions: '-Xmx3072m'
       javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '1.8'
+      jdkVersionOption: '1.7'
       jdkArchitectureOption: 'x64'
       publishJUnitResults: true
+
+
 
