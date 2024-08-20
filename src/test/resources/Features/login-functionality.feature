@@ -1,3 +1,4 @@
+@Regression
 Feature: Login Functionality
 
   Scenario Outline: Login with valid and invalid credentials
