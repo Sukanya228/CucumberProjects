@@ -8,7 +8,8 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 		features = "src/test/resources/Features",
 		glue = "StepDefinations",
-		plugin = {"pretty","html:target/html-reports/loginreport-3.html"},
+		plugin = {"pretty","html:target/html-reports/loginreport.html",
+				"json:target/html-reports/loginreport.json"},
 		monochrome = true  
 
 
