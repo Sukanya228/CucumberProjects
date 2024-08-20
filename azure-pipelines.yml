@@ -10,10 +10,6 @@ pool:
   vmImage: windows-latest
 
 jobs:
-- job: no_checkout
-  steps:
-  - checkout: none
-
 - job: Build
   steps:
   - checkout: self
