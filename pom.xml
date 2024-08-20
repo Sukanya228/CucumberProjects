@@ -60,6 +60,25 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>3.4.0</version>
 				</plugin>
+				<plugin>
+					<groupId>net.masterthought</groupId>
+					<artifactId>maven-cucumber-reporting</artifactId>
+					<version>3.9.0</version>
+					<executions>
+						<execution>
+							<id>execution</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>generate</goal>
+							</goals>
+							<configuration>
+								<projectName>OrangeHRM_BDDFramework</projectName>
+								<outputDirectory>target/html-reports/loginreport.html</outputDirectory>
+								<cucumberOutput>target/cucumber.json/loginreport.json</cucumberOutput>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 		<!-- To use the plugin goals in your POM or parent POM -->
@@ -69,6 +88,6 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 			</plugin>
 		</plugins>
-	</build>
 
+	</build>
 </project>
