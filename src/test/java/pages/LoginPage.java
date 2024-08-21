@@ -63,7 +63,6 @@ public class LoginPage {
 		invalidCred.isDisplayed(); 
 		Thread.sleep(2000); 
 		String invalid_actualTxt=invalidCred.getText();
-
 		return invalid_actualTxt;
 
 	}
