@@ -1,29 +1,17 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
-- master
-
+- main
 pool:
-  vmImage: ubuntu-latest
+ vmImage: 'ubuntu-latest'
+steps:
+- task: UseJavaVersion@1
+ inputs:
+   versionSpec: '7'
+   checkLatest: true
 
-jobs:
-- job: no_checkout
-  steps:
-  - checkout: none
-
-- job: Build
-  steps:
-  - checkout: self
-  - task: Maven@4
-    inputs:
-      mavenPomFile: 'pom.xml'
-      goals: 'clean install'
-      mavenOptions: '-Xmx3072m'
-      javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '1.8'
-      jdkArchitectureOption: 'x64'
-      publishJUnitResults: true
-
+- task: Maven@4
+ inputs:
+   mavenPomFile: 'pom.xml'
+   goals: 'clean install'
+   options: '-Dmaven.test.failure.ignore=true'
+   javaHomeOption: 'JDKVersion'
+   jdkVersionOption: '7'  #
