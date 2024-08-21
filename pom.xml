@@ -74,7 +74,7 @@
 							<configuration>
 								<projectName>OrangeHRM_BDDFramework</projectName>
 								<outputDirectory>target/html-reports/loginreport.html</outputDirectory>
-								<cucumberOutput>target/cucumber.json/loginreport.json</cucumberOutput>
+								<cucumberOutput>target/html-reports/loginreport.json</cucumberOutput>
 							</configuration>
 						</execution>
 					</executions>

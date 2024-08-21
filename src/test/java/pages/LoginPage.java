@@ -13,29 +13,27 @@ public class LoginPage {
 	WebDriver driver;
     
     @FindBy(name="username")
-    WebElement txt_username;
+    private WebElement txt_username;
     
     @FindBy(name="password")
-    WebElement txt_password;
+    private WebElement txt_password;
     
     @FindBy(xpath="//button[@type='submit']")
-    WebElement login_Btn;
+    private WebElement login_Btn;
     
     @FindBy(xpath="//h6[text()='Dashboard']")
-    WebElement userDashboard;
+    private WebElement userDashboard;
     
     @FindBy(xpath="//*[@class='orangehrm-login-error']")
-    WebElement invalidCred;
+    private WebElement invalidCred;
     
     @FindBy(xpath="//span[text()='Required']")
-	WebElement requiredCred;
+	private WebElement requiredCred;
 
 
 	public LoginPage(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
-
-
 	}
 
 
